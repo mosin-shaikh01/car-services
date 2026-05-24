@@ -33,6 +33,9 @@ get_header();
 
 	// Testimonials Masonry Grid Section
 	get_template_part( 'template-parts/sections/testimonials' );
+
+	// Blog Grid Section
+	get_template_part( 'template-parts/sections/blog' );
 	?>
 </div><!-- .homepage -->
 

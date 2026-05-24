@@ -293,6 +293,9 @@ if ( typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' ) {
 			y       : yBase,
 			stagger : STAG.items,
 		} );
+
+		/* ── Blog cards ────────────────────────────────────────────────── */
+		batchFadeUp( '.blog-card', { y: yBase, stagger: STAG.cards } );
 	}
 
 	/* ══════════════════════════════════════════════════════════════════════
