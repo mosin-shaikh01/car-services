@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- Background -->
+  <rect width="300" height="300" fill="none"/>
+
+  <!-- Skull head -->
+  <ellipse cx="150" cy="100" rx="45" ry="50" fill="#e8e8e8" stroke="#333" stroke-width="2"/>
+
+  <!-- Eye sockets -->
+  <ellipse cx="130" cy="85" rx="12" ry="18" fill="#1a1a1a"/>
+  <ellipse cx="170" cy="85" rx="12" ry="18" fill="#1a1a1a"/>
+  <ellipse cx="130" cy="82" rx="6" ry="10" fill="#00bcd4"/>
+  <ellipse cx="170" cy="82" rx="6" ry="10" fill="#00bcd4"/>
+
+  <!-- Nose cavity -->
+  <path d="M 150 105 L 145 115 L 155 115 Z" fill="#333"/>
+
+  <!-- Teeth -->
+  <rect x="125" y="125" width="50" height="12" fill="none" stroke="#333" stroke-width="1"/>
+  <line x1="132" y1="125" x2="132" y2="137" stroke="#333" stroke-width="1"/>
+  <line x1="139" y1="125" x2="139" y2="137" stroke="#333" stroke-width="1"/>
+  <line x1="146" y1="125" x2="146" y2="137" stroke="#333" stroke-width="1"/>
+  <line x1="153" y1="125" x2="153" y2="137" stroke="#333" stroke-width="1"/>
+  <line x1="160" y1="125" x2="160" y2="137" stroke="#333" stroke-width="1"/>
+  <line x1="167" y1="125" x2="167" y2="137" stroke="#333" stroke-width="1"/>
+
+  <!-- Jaw -->
+  <path d="M 125 125 Q 150 140 175 125" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- Left Engine -->
+  <g transform="translate(80, 120)">
+    <!-- Engine block -->
+    <rect x="0" y="0" width="40" height="50" fill="#1a1a1a" stroke="#00bcd4" stroke-width="2" rx="2"/>
+    <!-- Cylinders -->
+    <rect x="5" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <rect x="16" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <rect x="27" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <!-- Lightning bolt -->
+    <path d="M 20 -8 L 16 0 L 23 2 L 18 12 Z" fill="#00bcd4"/>
+  </g>
+
+  <!-- Right Engine -->
+  <g transform="translate(180, 120)">
+    <!-- Engine block -->
+    <rect x="0" y="0" width="40" height="50" fill="#1a1a1a" stroke="#00bcd4" stroke-width="2" rx="2"/>
+    <!-- Cylinders -->
+    <rect x="5" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <rect x="16" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <rect x="27" y="5" width="8" height="40" fill="#333" stroke="#00bcd4" stroke-width="1"/>
+    <!-- Lightning bolt -->
+    <path d="M 20 -8 L 16 0 L 23 2 L 18 12 Z" fill="#00bcd4"/>
+  </g>
+
+  <!-- Left Tool (Wrench) -->
+  <g transform="translate(45, 60)">
+    <rect x="0" y="0" width="8" height="50" fill="#c0c0c0" stroke="#666" stroke-width="1" rx="2"/>
+    <circle cx="4" cy="10" r="8" fill="none" stroke="#c0c0c0" stroke-width="3"/>
+    <path d="M 12 10 L 25 25" stroke="#c0c0c0" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 25 25 L 20 20 L 25 25 L 30 20" fill="none" stroke="#c0c0c0" stroke-width="2"/>
+  </g>
+
+  <!-- Right Tool (Spark Plug) -->
+  <g transform="translate(210, 60)">
+    <rect x="0" y="0" width="6" height="40" fill="#c0c0c0" stroke="#666" stroke-width="1" rx="1"/>
+    <circle cx="3" cy="42" r="6" fill="#00bcd4" stroke="#333" stroke-width="1"/>
+    <path d="M 1 45 L 5 45 M 0 48 L 6 48" stroke="#333" stroke-width="0.5"/>
+  </g>
+
+  <!-- Gear at bottom -->
+  <g transform="translate(150, 240)">
+    <!-- Gear teeth -->
+    <path d="M 0,-30 L 8,-25 L 8,-35 L 16,-30 L 10,-40 L 18,-40 L 10,-50 L 12,-60 L 0,-50 L -12,-60 L -10,-50 L -18,-40 L -10,-40 L -18,-30 L -8,-35 L -8,-25 Z" fill="none" stroke="#00bcd4" stroke-width="2"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="8" fill="#1a1a1a" stroke="#00bcd4" stroke-width="1"/>
+  </g>
+
+  <!-- Text -->
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#00bcd4">
+    Dark Skill
+  </text>
+  <text x="150" y="298" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#c0c0c0">
+    Autocare
+  </text>
+</svg>

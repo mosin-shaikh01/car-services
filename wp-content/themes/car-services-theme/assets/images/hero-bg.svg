@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" width="1920" height="1200" preserveAspectRatio="xMidYMid slice">
+  <!-- Dark background -->
+  <rect width="1920" height="1200" fill="#0a0a0a"/>
+
+  <!-- Garage floor pattern -->
+  <defs>
+    <pattern id="floor" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="100" height="100" fill="#1a1a1a"/>
+      <rect x="0" y="0" width="100" height="100" fill="none" stroke="#333" stroke-width="1"/>
+    </pattern>
+
+    <!-- Gradient for dramatic lighting -->
+    <linearGradient id="lighting" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2a2a2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f0f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base gradient -->
+  <rect width="1920" height="1200" fill="url(#lighting)"/>
+
+  <!-- Floor pattern -->
+  <rect width="1920" height="1200" fill="url(#floor)" opacity="0.3"/>
+
+  <!-- Warehouse/garage pillars -->
+  <g opacity="0.2">
+    <!-- Left pillar -->
+    <rect x="200" y="200" width="80" height="900" fill="#333" stroke="#555" stroke-width="2"/>
+    <!-- Center pillar -->
+    <rect x="900" y="200" width="80" height="900" fill="#333" stroke="#555" stroke-width="2"/>
+    <!-- Right pillar -->
+    <rect x="1620" y="200" width="80" height="900" fill="#333" stroke="#555" stroke-width="2"/>
+  </g>
+
+  <!-- Window/light effects -->
+  <g opacity="0.15">
+    <!-- Windows on left -->
+    <rect x="100" y="300" width="50" height="50" fill="#00bcd4"/>
+    <rect x="170" y="300" width="50" height="50" fill="#00bcd4"/>
+    <rect x="100" y="400" width="50" height="50" fill="#00bcd4"/>
+    <rect x="170" y="400" width="50" height="50" fill="#00bcd4"/>
+
+    <!-- Windows on right -->
+    <rect x="1700" y="300" width="50" height="50" fill="#00bcd4"/>
+    <rect x="1770" y="300" width="50" height="50" fill="#00bcd4"/>
+    <rect x="1700" y="400" width="50" height="50" fill="#00bcd4"/>
+    <rect x="1770" y="400" width="50" height="50" fill="#00bcd4"/>
+  </g>
+
+  <!-- Car silhouette (centered) -->
+  <g opacity="0.25" transform="translate(960, 700)">
+    <!-- Car body -->
+    <ellipse cx="0" cy="0" rx="200" ry="80" fill="none" stroke="#999" stroke-width="3"/>
+    <!-- Car roof -->
+    <rect x="-100" y="-80" width="200" height="60" rx="20" fill="none" stroke="#999" stroke-width="3"/>
+    <!-- Front wheel -->
+    <circle cx="-120" cy="80" r="40" fill="none" stroke="#666" stroke-width="2"/>
+    <circle cx="-120" cy="80" r="30" fill="none" stroke="#999" stroke-width="1"/>
+    <!-- Back wheel -->
+    <circle cx="120" cy="80" r="40" fill="none" stroke="#666" stroke-width="2"/>
+    <circle cx="120" cy="80" r="30" fill="none" stroke="#999" stroke-width="1"/>
+    <!-- Window -->
+    <path d="M -80 -60 L -40 -80 L 40 -80 L 80 -60" fill="none" stroke="#999" stroke-width="2"/>
+  </g>
+
+  <!-- Atmospheric effects -->
+  <g opacity="0.3">
+    <!-- Light rays -->
+    <line x1="960" y1="0" x2="800" y2="400" stroke="#00bcd4" stroke-width="2"/>
+    <line x1="960" y1="0" x2="1120" y2="400" stroke="#00bcd4" stroke-width="2"/>
+  </g>
+
+  <!-- Vignette effect -->
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#000;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0.4" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1200" fill="url(#vignette)"/>
+</svg>

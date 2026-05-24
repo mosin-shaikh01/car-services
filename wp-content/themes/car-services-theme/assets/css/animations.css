@@ -1,0 +1,173 @@
+/*
+ * Car Services Theme — Scroll-Triggered Animation System
+ * =======================================================
+ *
+ * ┌─────────────────────────────────────────────────────────────────────────┐
+ * │  GLOBAL CONTROLS — the ONLY values to touch                            │
+ * │  All animation variants share these four variables.                     │
+ * │                                                                         │
+ * │  --cs-anim-duration   Transition length.                                │
+ * │                        Snappy → 0.5s   Premium → 0.9s   Cinematic → 1.2s│
+ * │                                                                         │
+ * │  --cs-anim-easing     Acceleration curve.                               │
+ * │                        ease-out-quad (current): smooth deceleration     │
+ * │                        Softer alt: cubic-bezier(0.16, 0.6, 0.4, 1)      │
+ * │                                                                         │
+ * │  --cs-anim-distance   Fade-up Y offset (used by .cs-anim).              │
+ * │                        Subtle → 16px   Current → 32px   Dramatic → 48px │
+ * │                                                                         │
+ * │  --cs-anim-stagger    Delay between staggered children.                 │
+ * │                        Tight → 0.08s   Current → 0.12s   Wide → 0.18s   │
+ * └─────────────────────────────────────────────────────────────────────────┘
+ *
+ * Three reusable utility variants are provided:
+ *
+ *   .cs-anim         — Default fade + upward translate (most elements)
+ *   .cs-anim-fade    — Pure opacity fade, no movement (text overlays)
+ *   .cs-anim-scale   — Fade + subtle zoom-in (images, hero artwork)
+ *
+ * Classes are applied exclusively by initScrollAnimations() in main.js.
+ * IntersectionObserver fires once per element, then detaches.
+ * No layout shifts occur — only opacity + transform are animated.
+ */
+
+:root {
+	--cs-anim-duration : 0.9s;
+	--cs-anim-easing   : cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ease-out-quad */
+	--cs-anim-distance : 32px;
+	--cs-anim-stagger  : 0.12s;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   Base hidden state — applied by JS before element enters viewport
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.cs-anim,
+.cs-anim-fade,
+.cs-anim-scale {
+	opacity: 0;
+	transition:
+		opacity   var(--cs-anim-duration) var(--cs-anim-easing),
+		transform var(--cs-anim-duration) var(--cs-anim-easing);
+	/*
+	 * --cs-i is set inline by JS on each staggered child (0, 1, 2 …).
+	 * Solo elements have no --cs-i, defaulting to 0 → no stagger delay.
+	 */
+	transition-delay: calc(var(--cs-i, 0) * var(--cs-anim-stagger));
+	will-change: opacity, transform;
+}
+
+/* Default — fade + upward translate */
+.cs-anim {
+	transform: translate3d(0, var(--cs-anim-distance), 0);
+}
+
+/* Fade only — no movement */
+.cs-anim-fade {
+	transform: none;
+}
+
+/* Fade + subtle scale-in — great for images */
+.cs-anim-scale {
+	transform: scale(0.94);
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   Visible state — added by IntersectionObserver (or on-load rAF)
+   ═════════════════════════════════════════════════════════════════════════ */
+
+.cs-anim.cs-visible,
+.cs-anim-fade.cs-visible,
+.cs-anim-scale.cs-visible {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+	will-change: auto; /* release GPU layer after animation completes */
+}
+
+.cs-anim-scale.cs-visible {
+	transform: scale(1);
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   GSAP active — disable CSS transitions so GSAP owns all motion.
+   The <html> element gets .gsap-active added by animations.js init().
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/*
+ * When GSAP is running, strip the CSS hidden-state so GSAP starts from
+ * clean inline styles it sets itself (via autoAlpha / from()).
+ * transition: none prevents a CSS flash competing with GSAP's animation.
+ */
+.gsap-active .cs-anim,
+.gsap-active .cs-anim-fade,
+.gsap-active .cs-anim-scale {
+	opacity: 1;               /* GSAP sets opacity via autoAlpha — reset CSS */
+	transform: none;          /* GSAP sets transform — reset CSS              */
+	transition: none;         /* no CSS transition — GSAP is in charge        */
+	transition-delay: 0s;
+	will-change: auto;        /* GSAP adds this itself when needed            */
+}
+
+/* GPU-layer hints for elements GSAP will animate.
+   Applied globally so they are ready before GSAP fires. */
+.site-header,
+.hero-section,
+.page-banner,
+.section-header,
+.service-card,
+.why-card,
+.testimonial-card,
+.service-page-card,
+.value-card,
+.team-card,
+.stat-item,
+.checklist-item,
+.package-card,
+.step-item,
+.faq-item,
+.contact-info-item,
+.about-story-image,
+.about-story-content,
+.inspection-intro-image,
+.inspection-intro-content,
+.contact-map,
+.contact-form-wrap,
+.cta-content,
+.footer-brand,
+.footer-col {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+/* Button hover prep — ensures transform-origin is centered for GSAP scale */
+.btn,
+.cs-btn,
+button[type="submit"] {
+	transform-origin: center center;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   Accessibility — fully honour prefers-reduced-motion
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+	.cs-anim,
+	.cs-anim-fade,
+	.cs-anim-scale,
+	.cs-anim.cs-visible,
+	.cs-anim-fade.cs-visible,
+	.cs-anim-scale.cs-visible {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+		will-change: auto !important;
+	}
+
+	/* Also neutralise any GSAP inline styles under reduced-motion */
+	.gsap-active .cs-anim,
+	.gsap-active .cs-anim-fade,
+	.gsap-active .cs-anim-scale {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}

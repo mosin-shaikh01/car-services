@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Car Services Theme — Demo Content
+     Replace this file with your exported WordPress content XML.
+     Export via: Tools > Export > All content -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+	<channel>
+		<title>Dark Skull Autocare — Demo</title>
+		<link>http://localhost/car-services</link>
+		<description></description>
+		<pubDate></pubDate>
+		<language>en-US</language>
+		<wp:wxr_version>1.2</wp:wxr_version>
+		<wp:base_site_url>http://localhost/car-services</wp:base_site_url>
+		<wp:base_blog_url>http://localhost/car-services</wp:base_blog_url>
+
+		<!-- Menus -->
+		<wp:term>
+			<wp:term_id>1</wp:term_id>
+			<wp:term_taxonomy>nav_menu</wp:term_taxonomy>
+			<wp:term_slug>primary-menu</wp:term_slug>
+			<wp:term_name><![CDATA[Primary Menu]]></wp:term_name>
+		</wp:term>
+		<wp:term>
+			<wp:term_id>2</wp:term_id>
+			<wp:term_taxonomy>nav_menu</wp:term_taxonomy>
+			<wp:term_slug>footer-menu</wp:term_slug>
+			<wp:term_name><![CDATA[Footer Menu]]></wp:term_name>
+		</wp:term>
+		<wp:term>
+			<wp:term_id>3</wp:term_id>
+			<wp:term_taxonomy>nav_menu</wp:term_taxonomy>
+			<wp:term_slug>mobile-menu</wp:term_slug>
+			<wp:term_name><![CDATA[Mobile Menu]]></wp:term_name>
+		</wp:term>
+
+		<!-- Home page -->
+		<item>
+			<title>Home</title>
+			<link>http://localhost/car-services/</link>
+			<pubDate></pubDate>
+			<dc:creator><![CDATA[admin]]></dc:creator>
+			<guid isPermaLink="false">http://localhost/car-services/?page_id=2</guid>
+			<description></description>
+			<content:encoded><![CDATA[]]></content:encoded>
+			<wp:post_id>2</wp:post_id>
+			<wp:post_date><![CDATA[2026-01-01 00:00:00]]></wp:post_date>
+			<wp:post_status><![CDATA[publish]]></wp:post_status>
+			<wp:post_name><![CDATA[home]]></wp:post_name>
+			<wp:post_type><![CDATA[page]]></wp:post_type>
+			<wp:page_template><![CDATA[default]]></wp:page_template>
+		</item>
+
+	</channel>
+</rss>

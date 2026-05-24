@@ -1,0 +1,19 @@
+/*
+Theme Name: Car Services
+Theme URI: NA
+Author: Mosin Shaikh
+Author URI: https://www.linkedin.com/in/mosin-shaikh01s/
+Description: A modern, lightweight WordPress theme for car service businesses. Built with block-editor support, theme.json, ACF integration, and WooCommerce compatibility.
+Version: 1.2.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: car-services-theme
+Domain Path: /languages
+Requires at least: 6.0
+Tested up to: 7.0
+Requires PHP: 8.0
+Tags: dark, two-columns, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, blog, e-commerce
+*/
+
+/* This file is intentionally left minimal */
+/* All styles are enqueued from assets/css directory */

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://schemas.wp.org/wp/7.0/theme.json",
+  "version": 2,
+  "title": "Car Services Theme",
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    },
+    "color": {
+      "defaultPalette": true,
+      "customDuotone": true,
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#00bcd4",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#00a0b8",
+          "name": "Secondary"
+        },
+        {
+          "slug": "accent",
+          "color": "#0097a7",
+          "name": "Accent"
+        },
+        {
+          "slug": "dark",
+          "color": "#1a1a1a",
+          "name": "Dark"
+        },
+        {
+          "slug": "dark-soft",
+          "color": "#111111",
+          "name": "Dark Soft"
+        },
+        {
+          "slug": "light",
+          "color": "#f5f5f5",
+          "name": "Light"
+        },
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "White"
+        },
+        {
+          "slug": "gray",
+          "color": "#999999",
+          "name": "Gray"
+        }
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": true,
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+          "slug": "system-fonts",
+          "name": "System Fonts"
+        },
+        {
+          "fontFamily": "Poppins, sans-serif",
+          "slug": "poppins",
+          "name": "Poppins"
+        },
+        {
+          "fontFamily": "Roboto, sans-serif",
+          "slug": "roboto",
+          "name": "Roboto"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small",   "size": "0.875rem", "name": "Small" },
+        { "slug": "normal",  "size": "1rem",     "name": "Normal" },
+        { "slug": "medium",  "size": "1.125rem", "name": "Medium" },
+        { "slug": "large",   "size": "1.5rem",   "name": "Large" },
+        { "slug": "xlarge",  "size": "2rem",     "name": "X-Large" },
+        { "slug": "xxlarge", "size": "2.5rem",   "name": "XX-Large" }
+      ]
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": true,
+      "spacingSizes": [
+        { "slug": "small",  "size": "0.5rem", "name": "Small" },
+        { "slug": "medium", "size": "1rem",   "name": "Medium" },
+        { "slug": "large",  "size": "2rem",   "name": "Large" },
+        { "slug": "xlarge", "size": "4rem",   "name": "X-Large" }
+      ]
+    },
+    "blocks": {
+      "core/button": {
+        "color": {
+          "text": true,
+          "background": true
+        },
+        "spacing": {
+          "padding": true
+        }
+      },
+      "core/paragraph": {
+        "typography": {
+          "fontSize": true,
+          "lineHeight": true
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontSize": true
+        }
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#1a1a1a",
+      "text": "#ffffff"
+    },
+    "typography": {
+      "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      "fontSize": "1rem",
+      "lineHeight": 1.6
+    },
+    "elements": {
+      "link": {
+        "color": {
+          "text": "#00bcd4"
+        }
+      }
+    },
+    "blocks": {
+      "core/button": {
+        "color": {
+          "background": "#00bcd4",
+          "text": "#1a1a1a"
+        },
+        "border": {
+          "radius": "6px"
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontFamily": "Poppins, sans-serif",
+          "fontWeight": "600"
+        }
+      }
+    }
+  }
+}

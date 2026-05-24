@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Block Editor Styles
+   ========================================================================== */
+
+.wp-block-group,
+.wp-block-columns {
+	margin: 0 0 1.5rem 0;
+}
+
+.wp-block-heading {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.wp-block-paragraph {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0 0 1rem 0;
+}
+
+.wp-block-button .wp-block-button__link {
+	background-color: #0066cc;
+	color: #ffffff;
+	padding: 0.75rem 1.5rem;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.wp-block-button .wp-block-button__link:hover {
+	background-color: #ff6b35;
+}
+
+.wp-block-image {
+	margin: 1.5rem 0;
+}
+
+.wp-block-image img {
+	border-radius: 4px;
+}
+
+.wp-block-quote {
+	border-left: 4px solid #0066cc;
+	padding-left: 1rem;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: #666;
+}
+
+.wp-block-separator {
+	border: none;
+	border-top: 2px solid #e0e0e0;
+	margin: 2rem 0;
+}
+
+.wp-block-spacer {
+	margin: 0;
+}
+
+.wp-block-list {
+	padding-left: 2rem;
+	margin-bottom: 1rem;
+}
+
+.wp-block-list li {
+	margin-bottom: 0.5rem;
+}
+
+.wp-block-table {
+	border-collapse: collapse;
+	margin: 1.5rem 0;
+	width: 100%;
+}
+
+.wp-block-table table td,
+.wp-block-table table th {
+	border: 1px solid #e0e0e0;
+	padding: 0.75rem;
+}
+
+.wp-block-table table th {
+	background-color: #f5f5f5;
+	font-weight: 600;
+}
+
+.wp-block-code {
+	background-color: #f5f5f5;
+	padding: 1rem;
+	border-radius: 4px;
+	font-family: 'Courier New', monospace;
+	margin: 1.5rem 0;
+	overflow-x: auto;
+}
+
+.wp-block-preformatted {
+	background-color: #1a1a1a;
+	color: #ffffff;
+	padding: 1rem;
+	border-radius: 4px;
+	font-family: 'Courier New', monospace;
+	margin: 1.5rem 0;
+	overflow-x: auto;
+}
+
+.wp-block-pullquote {
+	border-left: 4px solid #0066cc;
+	padding: 1.5rem;
+	margin: 1.5rem 0;
+	background-color: #f5f5f5;
+	border-radius: 4px;
+}
+
+.wp-block-columns {
+	gap: 1.5rem;
+}
+
+.wp-block-column {
+	margin: 0;
+}
+
+/* WooCommerce Blocks */
+.wp-block-woocommerce-product-gallery {
+	margin: 1.5rem 0;
+}
+
+.wp-block-woocommerce-product-title {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 1.75rem;
+}
+
+.wp-block-woocommerce-product-price {
+	font-size: 1.25rem;
+	color: #0066cc;
+	font-weight: 600;
+}
+
+.wp-block-woocommerce-product-add-to-cart {
+	margin-top: 1rem;
+}
+
+/* Alignment */
+.alignleft {
+	float: left;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	max-width: 50%;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+	max-width: 50%;
+}
+
+.aligncenter {
+	text-align: center;
+	margin: 1rem auto;
+}
+
+.alignwide {
+	max-width: 100%;
+	margin-left: -2rem;
+	margin-right: -2rem;
+}
+
+.alignfull {
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	max-width: 100vw;
+}
+
+/* Cover Block */
+.wp-block-cover {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 300px;
+	border-radius: 4px;
+}
+
+.wp-block-cover-text {
+	color: #ffffff;
+	font-size: 2rem;
+	font-weight: 600;
+	text-align: center;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Social Links */
+.wp-block-social-links {
+	margin: 1.5rem 0;
+}
+
+.wp-social-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: #0066cc;
+	border-radius: 50%;
+	color: #ffffff;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	margin-right: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.wp-social-link:hover {
+	background-color: #ff6b35;
+}
+
+/* Latest Posts Block */
+.wp-block-latest-posts {
+	list-style: none;
+	padding: 0;
+}
+
+.wp-block-latest-posts li {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.wp-block-latest-posts li:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.wp-block-latest-posts li a {
+	color: #0066cc;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.wp-block-latest-posts li a:hover {
+	color: #ff6b35;
+	text-decoration: underline;
+}
+
+/* Categories Block */
+.wp-block-categories {
+	list-style: none;
+	padding: 0;
+}
+
+.wp-block-categories li {
+	margin-bottom: 0.5rem;
+}
+
+.wp-block-categories a {
+	color: #0066cc;
+	text-decoration: none;
+}
+
+.wp-block-categories a:hover {
+	color: #ff6b35;
+	text-decoration: underline;
+}

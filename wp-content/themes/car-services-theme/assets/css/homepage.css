@@ -1,0 +1,864 @@
+/* ==========================================================================
+   Car Services Theme - Homepage Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero-section {
+	position: relative;
+	min-height: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+	margin-top: -60px;
+	padding-top: 80px;
+}
+
+/* Video background */
+.hero-video-bg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.hero-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(26, 26, 26, 0.75);
+	backdrop-filter: blur(2px);
+	z-index: 1;
+}
+
+.hero-container {
+	position: relative;
+	z-index: 2;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-logo {
+	margin-bottom: 2rem;
+	animation: slideDown 0.8s ease-out;
+}
+
+.hero-logo img {
+	max-width: 300px;
+	width: 100%;
+	height: auto;
+	filter: drop-shadow(0 4px 12px rgba(0, 188, 212, 0.3));
+}
+
+.hero-title {
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: #ffffff;
+	margin: 1rem 0 0.5rem;
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+	line-height: 1.1;
+	animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+	font-size: 1.25rem;
+	color: #00bcd4;
+	margin-bottom: 2rem;
+	animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.hero-section .btn-lg {
+	animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+/* ==========================================================================
+   Brand Logos Carousel Section
+   ========================================================================== */
+
+.brands-section {
+	padding: 2.5rem 0 2rem;
+	background-color: #111111;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	overflow: hidden;
+}
+
+.brands-heading {
+	text-align: center;
+	font-size: 1.15rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.75);
+	margin: 0 0 1.75rem;
+}
+
+/* Carousel wrapper — fade edges on left and right */
+.brands-carousel-wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.brands-carousel-wrapper::before,
+.brands-carousel-wrapper::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 80px;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.brands-carousel-wrapper::before {
+	left: 0;
+	background: linear-gradient(to right, #111111, transparent);
+}
+
+.brands-carousel-wrapper::after {
+	right: 0;
+	background: linear-gradient(to left, #111111, transparent);
+}
+
+/* Scrolling track — two copies side-by-side for seamless loop */
+.brands-track {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	width: max-content;
+	animation: brandScroll 30s linear infinite;
+}
+
+.brands-track:hover {
+	animation-play-state: paused;
+}
+
+@keyframes brandScroll {
+	0%   { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+
+.brand-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	padding: 0.5rem 2.5rem;
+	flex-shrink: 0;
+	border-right: 1px solid rgba(255, 255, 255, 0.07);
+	transition: opacity 0.3s ease;
+	opacity: 0.75;
+}
+
+.brand-item:hover {
+	opacity: 1;
+}
+
+.brand-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 52px;
+}
+
+.brand-logo img {
+	max-height: 52px;
+	max-width: 100px;
+	width: auto;
+	object-fit: contain;
+	filter: brightness(0) invert(1);
+	opacity: 0.8;
+	transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.brand-item:hover .brand-logo img {
+	filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(155deg);
+	opacity: 1;
+}
+
+/* Text-only fallback when no logo image is uploaded */
+.brand-logo--text-only {
+	width: 52px;
+}
+
+.brand-logo-placeholder {
+	font-size: 2rem;
+	color: rgba(255, 255, 255, 0.15);
+}
+
+.brand-name {
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.55);
+	white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+	.brands-section {
+		padding: 2rem 0 1.5rem;
+	}
+
+	.brand-item {
+		padding: 0.5rem 1.75rem;
+	}
+
+	.brand-logo img {
+		max-height: 40px;
+		max-width: 80px;
+	}
+
+	.brands-carousel-wrapper::before,
+	.brands-carousel-wrapper::after {
+		width: 40px;
+	}
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+
+.services-section {
+	padding: 4rem 0;
+	background-color: #1a1a1a;
+	color: #ffffff;
+}
+
+.services-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 3rem;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.services-header h2 {
+	font-size: 2rem;
+	color: #ffffff;
+	margin: 0;
+	flex: 1;
+	min-width: 200px;
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+	margin-bottom: 3rem;
+}
+
+.service-card {
+	padding: 2rem;
+	background-color: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(0, 188, 212, 0.2);
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.service-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.1), transparent);
+	transition: left 0.5s ease;
+}
+
+.service-card:hover::before {
+	left: 100%;
+}
+
+.service-card:hover {
+	border-color: #00bcd4;
+	background-color: rgba(0, 188, 212, 0.05);
+	box-shadow: 0 8px 24px rgba(0, 188, 212, 0.15);
+	transform: translateY(-4px);
+}
+
+.service-card h3 {
+	font-size: 1.25rem;
+	color: #ffffff;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-weight: 600;
+	position: relative;
+	z-index: 1;
+}
+
+.service-card p {
+	font-size: 0.95rem;
+	color: #cccccc;
+	line-height: 1.6;
+	margin: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.services-footer {
+	display: flex;
+	justify-content: center;
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+
+.cta-section {
+	padding: 4rem 0;
+	background: linear-gradient(135deg, rgba(0, 188, 212, 0.1) 0%, rgba(0, 100, 130, 0.1) 100%);
+	border-top: 1px solid rgba(0, 188, 212, 0.2);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+/* When a background image is set */
+.cta-section.cta-has-bg {
+	background-color: #1a1a1a;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-top: none;
+}
+
+/* Dark overlay over the background image */
+.cta-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.65);
+	z-index: 1;
+}
+
+/* Ensure content sits above the overlay */
+.cta-section .container {
+	position: relative;
+	z-index: 2;
+}
+
+.cta-content {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.cta-content h2 {
+	font-size: 2rem;
+	color: #ffffff;
+	margin-bottom: 1rem;
+}
+
+.cta-content p {
+	font-size: 1.1rem;
+	color: #cccccc;
+	margin-bottom: 2rem;
+	line-height: 1.6;
+}
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	background-color: #00bcd4;
+	color: #1a1a1a;
+	border: 2px solid #00bcd4;
+	border-radius: 6px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 0.95rem;
+	font-family: var(--font-family);
+	white-space: nowrap;
+}
+
+.btn:hover {
+	background-color: transparent;
+	color: #00bcd4;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(0, 188, 212, 0.3);
+}
+
+.btn-primary {
+	background-color: #00bcd4;
+	color: #1a1a1a;
+	border-color: #00bcd4;
+}
+
+.btn-primary:hover {
+	background-color: transparent;
+	color: #00bcd4;
+}
+
+.btn-lg {
+	padding: 1rem 2rem;
+	font-size: 1rem;
+}
+
+.btn-outline {
+	background-color: transparent;
+	color: #00bcd4;
+	border: 2px solid #00bcd4;
+}
+
+.btn-outline:hover {
+	background-color: #00bcd4;
+	color: #1a1a1a;
+}
+
+.btn-icon {
+	font-size: 1.1em;
+	display: inline-block;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+	.hero-section {
+		min-height: 500px;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
+	}
+
+	.hero-logo img {
+		max-width: 250px;
+	}
+
+	.services-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.services-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.services-header h2 {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-section {
+		min-height: 400px;
+		padding-top: 60px;
+		background-attachment: scroll;
+	}
+
+	.hero-title {
+		font-size: 2rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1rem;
+	}
+
+	.hero-logo img {
+		max-width: 200px;
+	}
+
+	.services-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	.services-section {
+		padding: 2rem 0;
+	}
+
+	.services-header {
+		margin-bottom: 2rem;
+	}
+
+	.services-header h2 {
+		font-size: 1.5rem;
+	}
+
+	.service-card {
+		padding: 1.5rem;
+	}
+
+	.cta-section {
+		padding: 2rem 0;
+	}
+
+	.cta-content h2 {
+		font-size: 1.5rem;
+	}
+
+	.cta-content p {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-section {
+		min-height: 350px;
+		padding-top: 50px;
+	}
+
+	.hero-title {
+		font-size: 1.5rem;
+	}
+
+	.hero-subtitle {
+		font-size: 0.9rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-logo img {
+		max-width: 150px;
+	}
+
+	.services-grid {
+		gap: 1rem;
+	}
+
+	.service-card {
+		padding: 1rem;
+	}
+
+	.service-card h3 {
+		font-size: 1.1rem;
+	}
+
+	.service-card p {
+		font-size: 0.85rem;
+	}
+
+	.btn {
+		padding: 0.6rem 1rem;
+		font-size: 0.85rem;
+	}
+
+	.btn-lg {
+		padding: 0.8rem 1.5rem;
+		font-size: 0.9rem;
+	}
+
+	.services-header {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.services-header h2 {
+		font-size: 1.25rem;
+	}
+
+	.cta-content h2 {
+		font-size: 1.25rem;
+	}
+}
+
+/* ==========================================================================
+   Section Shared Header
+   ========================================================================== */
+
+.section-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.section-tag {
+	display: inline-block;
+	background-color: rgba(0, 188, 212, 0.15);
+	color: var(--primary-color);
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 0.35rem 1rem;
+	border-radius: 20px;
+	border: 1px solid rgba(0, 188, 212, 0.3);
+	margin-bottom: 1rem;
+}
+
+.section-header h2 {
+	color: #ffffff;
+	font-size: 2rem;
+	margin: 0.5rem 0;
+}
+
+.section-header p {
+	color: #999;
+	max-width: 560px;
+	margin: 0 auto;
+	font-size: 1rem;
+}
+
+/* ==========================================================================
+   Why Choose Us Section
+   ========================================================================== */
+
+.why-choose-section {
+	padding: 5rem 0;
+	background-color: #111111;
+}
+
+.why-choose-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+
+.why-card {
+	background-color: #1a1a1a;
+	border: 1px solid rgba(0, 188, 212, 0.12);
+	border-radius: 10px;
+	padding: 2rem 1.5rem;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.why-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, #00bcd4, #0097a7);
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.why-card:hover {
+	border-color: rgba(0, 188, 212, 0.4);
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 188, 212, 0.1);
+}
+
+.why-card:hover::before {
+	transform: scaleX(1);
+}
+
+.why-card-icon {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	display: block;
+}
+
+.why-card h3 {
+	color: #ffffff;
+	font-size: 1.05rem;
+	margin: 0 0 0.75rem;
+}
+
+.why-card p {
+	color: #999;
+	font-size: 0.9rem;
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* ==========================================================================
+   Testimonials Masonry Section
+   ========================================================================== */
+
+.testimonials-section {
+	padding: 5rem 0;
+	background-color: #1a1a1a;
+}
+
+.testimonials-masonry {
+	columns: 3;
+	column-gap: 1.5rem;
+}
+
+.testimonial-card {
+	break-inside: avoid;
+	background-color: #111111;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	border-radius: 10px;
+	padding: 1.75rem;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	width: 100%;
+	transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+	border-color: rgba(0, 188, 212, 0.3);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+	transform: translateY(-2px);
+}
+
+.testimonial-rating {
+	color: #f5a623;
+	font-size: 0.95rem;
+	letter-spacing: 2px;
+	margin-bottom: 0.75rem;
+}
+
+.testimonial-text {
+	color: #cccccc;
+	font-size: 0.925rem;
+	line-height: 1.75;
+	margin: 0 0 1.25rem;
+	font-style: italic;
+}
+
+.testimonial-author {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.testimonial-avatar {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #00bcd4, #0097a7);
+	color: #ffffff;
+	font-size: 0.8rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.testimonial-info strong {
+	display: block;
+	color: #ffffff;
+	font-size: 0.9rem;
+}
+
+.testimonial-info span {
+	color: #666;
+	font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Responsive — Why Choose & Testimonials
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	.why-choose-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.testimonials-masonry {
+		columns: 2;
+	}
+
+	.section-header h2 {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.why-choose-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.testimonials-masonry {
+		columns: 1;
+	}
+
+	.why-choose-section,
+	.testimonials-section {
+		padding: 3rem 0;
+	}
+}
+
+/* ==========================================================================
+   Dark Mode Support
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+	.service-card {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.service-card:hover {
+		background-color: rgba(0, 188, 212, 0.08);
+	}
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.hero-section {
+		background: none;
+		min-height: auto;
+		padding: 0;
+	}
+
+	.hero-overlay {
+		display: none;
+	}
+
+	.btn {
+		border: 1px solid #000;
+		color: #000;
+		background: #fff;
+	}
+}
