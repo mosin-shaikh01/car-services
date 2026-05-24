@@ -146,6 +146,14 @@ function car_services_register_homepage_fields() {
 				'name'          => 'hero_button_url',
 				'type'          => 'url',
 				'default_value' => '/contact',
+				'instructions'  => 'Leave empty if using shortcode below.',
+			),
+			array(
+				'key'           => 'field_cs_hero_btn_shortcode',
+				'label'         => 'Button Shortcode (triggers modal)',
+				'name'          => 'hero_button_shortcode',
+				'type'          => 'text',
+				'instructions'  => 'If filled, button opens the Book Now modal instead of navigating. Leave empty to use URL above.',
 			),
 		),
 	) );
@@ -174,6 +182,14 @@ function car_services_register_homepage_fields() {
 			'name'          => 'services_button_url',
 			'type'          => 'url',
 			'default_value' => '/contact',
+			'instructions'  => 'Leave empty if using shortcode below.',
+		),
+		array(
+			'key'           => 'field_cs_services_btn_shortcode',
+			'label'         => 'Button Shortcode (triggers modal)',
+			'name'          => 'services_button_shortcode',
+			'type'          => 'text',
+			'instructions'  => 'If filled, button opens the Book Now modal instead of navigating. Leave empty to use URL above.',
 		),
 	);
 
@@ -941,7 +957,8 @@ function car_services_register_homepage_fields() {
 		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_ttl',  'label' => 'Title',             'name' => 'srv_card_' . $i . '_title',       'type' => 'text',     'default_value' => $srv_card_defaults[ $i ][1] );
 		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_dsc',  'label' => 'Description',       'name' => 'srv_card_' . $i . '_description', 'type' => 'textarea', 'rows' => 2, 'default_value' => $srv_card_defaults[ $i ][2] );
 		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_lbt',  'label' => 'Button Text',       'name' => 'srv_card_' . $i . '_link_text',   'type' => 'text',     'default_value' => 'Book Now' );
-		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_lbu',  'label' => 'Button URL',        'name' => 'srv_card_' . $i . '_link_url',    'type' => 'url',      'default_value' => '/contact' );
+		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_lbu',  'label' => 'Button URL',        'name' => 'srv_card_' . $i . '_link_url',    'type' => 'url',      'default_value' => '/contact',  'instructions' => 'Leave empty if using shortcode below.' );
+		$srv_fields[] = array( 'key' => 'field_srv_card_' . $i . '_lbs',  'label' => 'Button Shortcode (triggers modal)', 'name' => 'srv_card_' . $i . '_link_shortcode', 'type' => 'text', 'instructions' => 'If filled, button opens the Book Now modal instead of navigating.' );
 	}
 
 	$srv_step_defaults = array(
@@ -982,7 +999,8 @@ function car_services_register_homepage_fields() {
 	$srv_fields[] = array( 'key' => 'field_srv_cta_heading',  'label' => 'Heading',     'name' => 'srv_cta_heading',  'type' => 'text', 'default_value' => 'Ready to Book Your Service?' );
 	$srv_fields[] = array( 'key' => 'field_srv_cta_text',     'label' => 'Text',        'name' => 'srv_cta_text',     'type' => 'text', 'default_value' => 'Contact us today and our team will get you booked in.' );
 	$srv_fields[] = array( 'key' => 'field_srv_cta_btn_text', 'label' => 'Button Text', 'name' => 'srv_cta_btn_text', 'type' => 'text', 'default_value' => 'Contact Us' );
-	$srv_fields[] = array( 'key' => 'field_srv_cta_btn_url',  'label' => 'Button URL',  'name' => 'srv_cta_btn_url',  'type' => 'url',  'default_value' => '/contact' );
+	$srv_fields[] = array( 'key' => 'field_srv_cta_btn_url',  'label' => 'Button URL',  'name' => 'srv_cta_btn_url',  'type' => 'url',  'default_value' => '/contact', 'instructions' => 'Leave empty if using shortcode below.' );
+	$srv_fields[] = array( 'key' => 'field_srv_cta_btn_shortcode',  'label' => 'Button Shortcode (triggers modal)',  'name' => 'srv_cta_btn_shortcode',  'type' => 'text', 'instructions' => 'If filled, button opens the Book Now modal instead of navigating.' );
 	$srv_fields[] = array( 'key' => 'field_srv_cta_bg', 'label' => 'CTA Background Image (optional)', 'name' => 'srv_cta_bg_image', 'type' => 'image', 'return_format' => 'url', 'instructions' => 'Upload an image for the CTA background. Leave empty to use the default gradient.' );
 
 	acf_add_local_field_group( array(
@@ -1043,7 +1061,8 @@ function car_services_register_homepage_fields() {
 		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_features', 'label' => 'Features (one per line)','name' => 'insp_pkg_' . $i . '_features',   'type' => 'textarea',  'rows' => 6, 'default_value' => $d[3] );
 		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_featured', 'label' => 'Mark as Featured?',      'name' => 'insp_pkg_' . $i . '_featured',   'type' => 'true_false','default_value' => $d[4] );
 		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_btn_text', 'label' => 'Button Text',            'name' => 'insp_pkg_' . $i . '_btn_text',   'type' => 'text',      'default_value' => $d[5] );
-		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_btn_url',  'label' => 'Button URL',             'name' => 'insp_pkg_' . $i . '_btn_url',    'type' => 'url',       'default_value' => '/contact' );
+		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_btn_url',  'label' => 'Button URL',             'name' => 'insp_pkg_' . $i . '_btn_url',    'type' => 'url',       'default_value' => '/contact',  'instructions' => 'Leave empty if using shortcode below.' );
+		$insp_fields[] = array( 'key' => 'field_insp_pkg_' . $i . '_btn_sc',  'label' => 'Button Shortcode (triggers modal)', 'name' => 'insp_pkg_' . $i . '_btn_shortcode',  'type' => 'text', 'instructions' => 'If filled, button opens the Book Now modal instead of navigating.' );
 	}
 
 	$insp_step_defaults = array(
@@ -1064,7 +1083,8 @@ function car_services_register_homepage_fields() {
 	$insp_fields[] = array( 'key' => 'field_insp_cta_heading',  'label' => 'Heading',     'name' => 'insp_cta_heading',  'type' => 'text', 'default_value' => 'Book Your Inspection Today' );
 	$insp_fields[] = array( 'key' => 'field_insp_cta_text',     'label' => 'Text',        'name' => 'insp_cta_text',     'type' => 'text', 'default_value' => 'Drive away with full confidence. Our team is ready to give your vehicle the thorough check it deserves.' );
 	$insp_fields[] = array( 'key' => 'field_insp_cta_btn_text', 'label' => 'Button Text', 'name' => 'insp_cta_btn_text', 'type' => 'text', 'default_value' => 'Book Now' );
-	$insp_fields[] = array( 'key' => 'field_insp_cta_btn_url',  'label' => 'Button URL',  'name' => 'insp_cta_btn_url',  'type' => 'url',  'default_value' => '/contact' );
+	$insp_fields[] = array( 'key' => 'field_insp_cta_btn_url',  'label' => 'Button URL',  'name' => 'insp_cta_btn_url',  'type' => 'url',  'default_value' => '/contact',  'instructions' => 'Leave empty if using shortcode below.' );
+	$insp_fields[] = array( 'key' => 'field_insp_cta_btn_sc',  'label' => 'Button Shortcode (triggers modal)',  'name' => 'insp_cta_btn_shortcode',  'type' => 'text', 'instructions' => 'If filled, button opens the Book Now modal instead of navigating.' );
 	$insp_fields[] = array( 'key' => 'field_insp_cta_bg', 'label' => 'CTA Background Image (optional)', 'name' => 'insp_cta_bg_image', 'type' => 'image', 'return_format' => 'url', 'instructions' => 'Upload an image for the CTA background. Leave empty to use the default gradient.' );
 
 	acf_add_local_field_group( array(

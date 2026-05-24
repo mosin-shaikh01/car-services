@@ -78,7 +78,12 @@ $package_defaults = array(
 
 $packages = array();
 for ( $i = 1; $i <= 3; $i++ ) {
-	$raw_features = car_services_field( 'insp_pkg_' . $i . '_features', $package_defaults[ $i ]['features'] );
+	$raw_features   = car_services_field( 'insp_pkg_' . $i . '_features', $package_defaults[ $i ]['features'] );
+	$btn_url        = car_services_field( 'insp_pkg_' . $i . '_btn_url', home_url( '/contact' ) );
+	$btn_shortcode  = car_services_field( 'insp_pkg_' . $i . '_btn_shortcode', '' );
+	// If shortcode is set, use href="#" to trigger modal; otherwise use URL
+	$btn_href       = ! empty( $btn_shortcode ) ? '#' : esc_url( $btn_url );
+
 	$packages[]   = array(
 		'name'     => car_services_field( 'insp_pkg_' . $i . '_name', $package_defaults[ $i ]['name'] ),
 		'price'    => car_services_field( 'insp_pkg_' . $i . '_price', $package_defaults[ $i ]['price'] ),
@@ -86,7 +91,7 @@ for ( $i = 1; $i <= 3; $i++ ) {
 		'features' => array_filter( array_map( 'trim', explode( "\n", $raw_features ) ) ),
 		'featured' => (bool) car_services_field( 'insp_pkg_' . $i . '_featured', $package_defaults[ $i ]['featured'] ),
 		'btn_text' => car_services_field( 'insp_pkg_' . $i . '_btn_text', $package_defaults[ $i ]['btn_text'] ),
-		'btn_url'  => car_services_field( 'insp_pkg_' . $i . '_btn_url', home_url( '/contact' ) ),
+		'btn_href' => $btn_href,
 	);
 }
 
@@ -109,10 +114,13 @@ for ( $i = 1; $i <= 4; $i++ ) {
 }
 
 // ── CTA ───────────────────────────────────────────────────────────────────────
-$cta_heading  = car_services_field( 'insp_cta_heading', __( 'Book Your Inspection Today', 'car-services-theme' ) );
-$cta_text     = car_services_field( 'insp_cta_text', __( 'Drive away with full confidence. Our team is ready to give your vehicle the thorough check it deserves.', 'car-services-theme' ) );
-$cta_btn_text = car_services_field( 'insp_cta_btn_text', __( 'Book Now', 'car-services-theme' ) );
-$cta_btn_url  = car_services_field( 'insp_cta_btn_url', home_url( '/contact' ) );
+$cta_heading       = car_services_field( 'insp_cta_heading', __( 'Book Your Inspection Today', 'car-services-theme' ) );
+$cta_text          = car_services_field( 'insp_cta_text', __( 'Drive away with full confidence. Our team is ready to give your vehicle the thorough check it deserves.', 'car-services-theme' ) );
+$cta_btn_text      = car_services_field( 'insp_cta_btn_text', __( 'Book Now', 'car-services-theme' ) );
+$cta_btn_url       = car_services_field( 'insp_cta_btn_url', home_url( '/contact' ) );
+$cta_btn_shortcode = car_services_field( 'insp_cta_btn_shortcode', '' );
+// If shortcode is set, use href="#" to trigger modal; otherwise use URL
+$cta_btn_href      = ! empty( $cta_btn_shortcode ) ? '#' : esc_url( $cta_btn_url );
 $cta_bg    = car_services_field( 'insp_cta_bg_image', '' );
 $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 ?>
@@ -193,7 +201,7 @@ $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 							<li><span>✓</span> <?php echo wp_kses_post( $feature ); ?></li>
 						<?php endforeach; ?>
 					</ul>
-					<a href="<?php echo esc_url( $pkg['btn_url'] ); ?>" class="btn <?php echo $pkg['featured'] ? 'btn-primary' : 'btn-outline'; ?> btn-block">
+					<a href="<?php echo $pkg['btn_href']; ?>" class="btn <?php echo $pkg['featured'] ? 'btn-primary' : 'btn-outline'; ?> btn-block">
 						<?php echo esc_html( $pkg['btn_text'] ); ?>
 					</a>
 				</div>
@@ -228,7 +236,7 @@ $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 		<div class="cta-content">
 			<h2><?php echo esc_html( $cta_heading ); ?></h2>
 			<p><?php echo esc_html( $cta_text ); ?></p>
-			<a href="<?php echo esc_url( $cta_btn_url ); ?>" class="btn btn-primary btn-lg">
+			<a href="<?php echo $cta_btn_href; ?>" class="btn btn-primary btn-lg">
 				<?php echo esc_html( $cta_btn_text ); ?>
 			</a>
 		</div>

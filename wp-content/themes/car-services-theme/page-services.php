@@ -30,12 +30,17 @@ $card_defaults = array(
 
 $service_cards = array();
 for ( $i = 1; $i <= 6; $i++ ) {
+	$link_url       = car_services_field( 'srv_card_' . $i . '_link_url', home_url( '/contact' ) );
+	$link_shortcode = car_services_field( 'srv_card_' . $i . '_link_shortcode', '' );
+	// If shortcode is set, use href="#" to trigger modal; otherwise use URL
+	$link_href      = ! empty( $link_shortcode ) ? '#' : esc_url( $link_url );
+
 	$service_cards[] = array(
 		'icon'        => car_services_field( 'srv_card_' . $i . '_icon', $card_defaults[ $i ][0] ),
 		'title'       => car_services_field( 'srv_card_' . $i . '_title', $card_defaults[ $i ][1] ),
 		'description' => car_services_field( 'srv_card_' . $i . '_description', $card_defaults[ $i ][2] ),
 		'link_text'   => car_services_field( 'srv_card_' . $i . '_link_text', __( 'Book Now', 'car-services-theme' ) ),
-		'link_url'    => car_services_field( 'srv_card_' . $i . '_link_url', home_url( '/contact' ) ),
+		'link_href'   => $link_href,
 	);
 }
 
@@ -80,10 +85,13 @@ for ( $i = 1; $i <= 8; $i++ ) {
 }
 
 // ── CTA ───────────────────────────────────────────────────────────────────────
-$cta_heading  = car_services_field( 'srv_cta_heading', __( 'Ready to Book Your Service?', 'car-services-theme' ) );
-$cta_text     = car_services_field( 'srv_cta_text', __( 'Contact us today and our team will get you booked in as soon as possible.', 'car-services-theme' ) );
-$cta_btn_text = car_services_field( 'srv_cta_btn_text', __( 'Contact Us', 'car-services-theme' ) );
-$cta_btn_url  = car_services_field( 'srv_cta_btn_url', home_url( '/contact' ) );
+$cta_heading      = car_services_field( 'srv_cta_heading', __( 'Ready to Book Your Service?', 'car-services-theme' ) );
+$cta_text         = car_services_field( 'srv_cta_text', __( 'Contact us today and our team will get you booked in as soon as possible.', 'car-services-theme' ) );
+$cta_btn_text     = car_services_field( 'srv_cta_btn_text', __( 'Contact Us', 'car-services-theme' ) );
+$cta_btn_url      = car_services_field( 'srv_cta_btn_url', home_url( '/contact' ) );
+$cta_btn_shortcode = car_services_field( 'srv_cta_btn_shortcode', '' );
+// If shortcode is set, use href="#" to trigger modal; otherwise use URL
+$cta_btn_href     = ! empty( $cta_btn_shortcode ) ? '#' : esc_url( $cta_btn_url );
 $cta_bg    = car_services_field( 'srv_cta_bg_image', '' );
 $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 ?>
@@ -119,7 +127,7 @@ $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 					<div class="service-page-card-icon"><?php echo esc_html( $card['icon'] ); ?></div>
 					<h3><?php echo esc_html( $card['title'] ); ?></h3>
 					<p><?php echo esc_html( $card['description'] ); ?></p>
-					<a href="<?php echo esc_url( $card['link_url'] ); ?>" class="service-page-card-link">
+					<a href="<?php echo $card['link_href']; ?>" class="service-page-card-link">
 						<?php echo esc_html( $card['link_text'] ); ?> →
 					</a>
 				</div>
@@ -179,7 +187,7 @@ $cta_class = 'cta-section' . ( $cta_bg ? ' cta-has-bg' : '' );
 		<div class="cta-content">
 			<h2><?php echo esc_html( $cta_heading ); ?></h2>
 			<p><?php echo esc_html( $cta_text ); ?></p>
-			<a href="<?php echo esc_url( $cta_btn_url ); ?>" class="btn btn-primary btn-lg">
+			<a href="<?php echo $cta_btn_href; ?>" class="btn btn-primary btn-lg">
 				<?php echo esc_html( $cta_btn_text ); ?>
 			</a>
 		</div>

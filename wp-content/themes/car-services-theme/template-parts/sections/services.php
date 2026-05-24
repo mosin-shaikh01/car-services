@@ -10,9 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$heading  = car_services_field( 'services_heading', __( 'Car Repairs', 'car-services-theme' ) );
-$btn_text = car_services_field( 'services_button_text', __( 'Book Now', 'car-services-theme' ) );
-$btn_url  = car_services_field( 'services_button_url', home_url( '/contact' ) );
+$heading        = car_services_field( 'services_heading', __( 'Car Repairs', 'car-services-theme' ) );
+$btn_text       = car_services_field( 'services_button_text', __( 'Book Now', 'car-services-theme' ) );
+$btn_url        = car_services_field( 'services_button_url', home_url( '/contact' ) );
+$btn_shortcode  = car_services_field( 'services_button_shortcode', '' );
+// If shortcode is set, use href="#" to trigger modal; otherwise use URL
+$btn_href       = ! empty( $btn_shortcode ) ? '#' : esc_url( $btn_url );
 
 $default_services = array(
 	array( 'title' => 'Car Repairs', 'description' => 'Diam rhoncus feugiat habitasse felis. Sistem non sed lacus integer sem tortor consequat pellentesque eget luctus in fermentum nec ornare mollis at Morbi pellentesque etiam sem.' ),
@@ -40,7 +43,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 	<div class="container">
 		<div class="services-header">
 			<h2><?php echo esc_html( $heading ); ?></h2>
-			<a href="<?php echo esc_url( $btn_url ); ?>" class="btn btn-primary">
+			<a href="<?php echo $btn_href; ?>" class="btn btn-primary">
 				<span class="btn-icon">☎️</span>
 				<?php echo esc_html( $btn_text ); ?>
 			</a>
@@ -56,7 +59,7 @@ for ( $i = 1; $i <= 4; $i++ ) {
 		</div>
 
 		<div class="services-footer">
-			<a href="<?php echo esc_url( $btn_url ); ?>" class="btn btn-primary">
+			<a href="<?php echo $btn_href; ?>" class="btn btn-primary">
 				<?php echo esc_html( $btn_text ); ?>
 			</a>
 		</div>
